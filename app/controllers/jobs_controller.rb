@@ -35,6 +35,7 @@ class JobsController < ApplicationController
   
   def destroy
     load_job
+    @job.destroy
     redirect_to jobs_path, alert: "Job was deleted."
   end
   
