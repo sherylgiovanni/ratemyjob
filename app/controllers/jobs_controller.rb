@@ -1,12 +1,18 @@
 class JobsController < ApplicationController
+  # HTTP method: GET
+  # URL: /jobs
   def index
     @jobs = Job.all
   end
   
+  # HTTP method: GET
+  # URL: /jobs/new
   def new
     @job = Job.new
   end
   
+  # HTTP method: POST
+  # URL: /jobs
   def create
     @job = Job.new job_params
     if @job.save
@@ -16,14 +22,20 @@ class JobsController < ApplicationController
     end
   end
   
+  # HTTP method: GET
+  # URL: /jobs/:id
   def show 
     load_job
   end
   
+  # HTTP method: GET
+  # URL: /jobs/:id/edit
   def edit
     load_job
   end
   
+  # HTTP method: PATCH/PUT
+  # URL: /jobs/:id
   def update
     load_job
     if @job.update job_params
@@ -33,6 +45,8 @@ class JobsController < ApplicationController
     end
   end
   
+  # HTTP method: DELETE
+  # URL: /jobs/:id
   def destroy
     load_job
     @job.destroy
