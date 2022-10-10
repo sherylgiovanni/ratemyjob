@@ -21,6 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <%= nav_link 'Home', root_path %>
+            <%= nav_link 'Jobs', jobs_path %>
             <%= nav_link 'About', about_path %>
           </ul>
           <form class="d-flex" role="search">
@@ -44,7 +45,7 @@
         <% end %>
       </div>
       <!-- End Flash message -->
-      <div class="row">
+      <div>
         <% if @show_title %>
         <div id="title" class="row">
           <div class="col">

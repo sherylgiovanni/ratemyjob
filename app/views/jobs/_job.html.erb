@@ -1,0 +1,5 @@
+<div id="<%= dom_id(job) %>" class="job">
+    <p><strong>Job Title: </strong> <%= link_to_unless_current job.job_title, job %></p>
+    <p><strong>Location: </strong> <%= job.location %></p>
+    <p><strong>Category: </strong> <%= job.category %></p>
+</div>

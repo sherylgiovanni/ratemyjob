@@ -1,0 +1,7 @@
+<%= bootstrap_form_with(model: @job) do |f| %>
+  <%= f.alert_message "Please fix the errors below.", error_summary: false %>
+  <%= f.text_field :job_title %>
+  <%= f.text_area :location %>
+  <%= f.text_field :category %>
+  <%= f.primary 'Add Job' %>
+<% end %>

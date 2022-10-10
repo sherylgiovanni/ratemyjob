@@ -1,0 +1,9 @@
+<% title "Jobs" %>
+
+<% @jobs.each do |job| %>
+    <%= render job %>
+<% end %>
+
+<p>
+    <%= link_to "New Job", new_job_path, class: "btn btn-primary" %>
+</p>
