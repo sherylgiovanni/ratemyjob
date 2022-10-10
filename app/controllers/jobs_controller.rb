@@ -24,6 +24,15 @@ class JobsController < ApplicationController
     load_job
   end
   
+  def update
+    load_job
+    if @job.update job_params
+      redirect_to @job, notice: "Job was updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+  
   private
   def load_job
     @job = Job.find params[:id]
