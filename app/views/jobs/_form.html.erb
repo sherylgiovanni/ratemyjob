@@ -3,5 +3,5 @@
   <%= f.text_field :job_title %>
   <%= f.text_area :location %>
   <%= f.text_field :category %>
-  <%= f.primary 'Add Job' %>
+  <%= f.primary @job.persisted? ? 'Update Job' : 'Add Job' %>
 <% end %>
