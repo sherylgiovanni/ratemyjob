@@ -1,9 +1,14 @@
-<% title "Jobs" %>
-
-<% @jobs.each do |job| %>
-    <%= render job %>
-<% end %>
-
-<p>
-    <%= link_to "New Job", new_job_path, class: "btn btn-primary" %>
-</p>
+<div class="px-4 container-fluid">
+    <div class="pricing-header px-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Jobs</h1>
+    <p>
+        <%= link_to "New Job", new_job_path, class: "btn btn-primary" %>
+    </p>
+    </div>
+    
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-5">
+        <% @jobs.each do |job| %>
+        <%= render job %>
+        <% end %>
+    </div>
+</div>

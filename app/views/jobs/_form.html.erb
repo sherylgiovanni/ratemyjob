@@ -1,7 +1,14 @@
-<%= bootstrap_form_with(model: @job) do |f| %>
-  <%= f.alert_message "Please fix the errors below.", error_summary: false %>
-  <%= f.text_field :job_title %>
-  <%= f.text_area :location %>
-  <%= f.text_field :category %>
-  <%= f.primary @job.persisted? ? 'Update Job' : 'Add Job' %>
-<% end %>
+<div class="text-center col-md-7 col-lg-8 mx-auto">
+    <form>
+      <div class="row g-3">
+        <div class="col">
+          <%= bootstrap_form_with(model: @job) do |f| %>
+          <%= f.alert_message "Please fix the errors below.", error_summary: false %>
+          <%= f.text_field :job_title %>
+          <%= f.text_area :location %>
+          <%= f.text_field :category %>
+          <%= f.primary @job.persisted? ? 'Update Job' : 'Add Job' %>
+          <% end %>
+        </div>
+    </form>
+  </div>
