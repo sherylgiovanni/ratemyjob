@@ -1,12 +1,7 @@
 <% title "Reviews for "+@job.job_title %>
 
-<% @job.reviews.each do |review| %>
-    <div id="<%= dom_id(review) %>" class="review">
-        <p><strong>Work Hours: </strong><%= review.work_hours %></p>
-        <p><strong>Pros: </strong><%= review.pros %></p>
-        <p><strong>Cons: </strong><%= review.cons %></p>
-        <p><strong>Hiring Manager Name: </strong><%= review.hiring_manager_name %></p>
-    </div>
-<% end %>
+<%= render @job.reviews %>
 
 <%= link_to "Add Review", new_job_review_path(@job), class: "btn btn-primary" %>
+<br>
+<%= link_to "Back to Job", job_path(@job) %>

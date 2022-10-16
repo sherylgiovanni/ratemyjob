@@ -1,0 +1,13 @@
+<% title "Review for "+@job.job_title %>
+
+<%= render @review %>
+
+<%= link_to "Edit Review", edit_job_review_path(@job,@review) %> |
+<%= link_to "All Reviews", job_reviews_path(@job) %>
+<%= button_to "Delete Review", [@job,@review], method: :delete, class: 'btn btn-secondary', form: {
+        data: {
+            turbo_confirm: "Are you sure you want to delete this job?"
+        }
+    }
+%>
+<br>
