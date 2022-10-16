@@ -1,0 +1,11 @@
+<% title "New Review" %>
+
+<%= bootstrap_form_with(model: [@job,@review]) do |f| %>
+  <%= f.alert_message "Please fix the errors below.", error_summary: false %>
+  <%= f.text_field :work_hours %>
+  <%= f.text_area :pros %>
+  <%= f.text_area :cons %>
+  <%= f.text_field :hiring_manager_name %>
+  <%= f.check_box :anonymous %>
+  <%= f.primary "Submit Review" %>
+<% end %>
