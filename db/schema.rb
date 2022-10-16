@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_09_234331) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_16_214211) do
   create_table "jobs", force: :cascade do |t|
     t.string "job_title"
     t.text "location"
     t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "user_id"
+    t.string "work_hours"
+    t.text "pros"
+    t.text "cons"
+    t.string "hiring_manager_name"
+    t.boolean "anonymous"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
