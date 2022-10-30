@@ -24,7 +24,8 @@
           </ul>
   
           <ul class="nav mb-md-0">
-            <% if session[:user_id] %>
+            <% if current_user %>
+              <%= nav_link current_user.name, user_path(current_user) %>
               <%= nav_link 'Log out', logout_path %>
             <% else %>
               <%= nav_link 'Login', login_path %>
