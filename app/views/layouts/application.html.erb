@@ -25,10 +25,10 @@
   
           <ul class="nav mb-md-0">
             <% if session[:user_id] %>
-              <%= nav_link 'Log out', '#' %>
+              <%= nav_link 'Log out', logout_path %>
             <% else %>
               <%= nav_link 'Login', login_path %>
-              <%= nav_link 'Sign Up', jobs_path %>
+              <%= nav_link 'Sign Up', signup_path %>
             <% end %>
           </ul>
         </div>
