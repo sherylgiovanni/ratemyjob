@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  before_action :authenticate
+  
   # HTTP method: GET
   # URL: /jobs
   def index
