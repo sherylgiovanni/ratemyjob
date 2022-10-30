@@ -1,2 +1,8 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% title "Login" %>
+
+<%= bootstrap_form_with(url: sessions_path, method: :post) do |f| %>
+  <%= f.alert_message "Please fix the errors below.", error_summary: false %>
+  <%= f.email_field :email %>
+  <%= f.password_field :password %>
+  <%= f.primary 'Login' %>
+<% end %>

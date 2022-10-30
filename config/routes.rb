@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   # disable users from accessing index and about if they are not logged in
   resources :users, except: [:index, :about]
-  resources :session, except: [:index, :edit, :edit, :show]
+  resources :sessions, except: [:index, :edit, :edit, :show]
   resources :jobs do
     resources :reviews
   end
