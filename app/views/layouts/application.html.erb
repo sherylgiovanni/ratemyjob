@@ -23,9 +23,14 @@
             <%= nav_link 'About', about_path %>
           </ul>
   
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-          </form>
+          <ul class="nav mb-md-0">
+            <% if session[:user_id] %>
+              <%= nav_link 'Log out', '#' %>
+            <% else %>
+              <%= nav_link 'Login', login_path %>
+              <%= nav_link 'Sign Up', jobs_path %>
+            <% end %>
+          </ul>
         </div>
       </div>
     </header>
