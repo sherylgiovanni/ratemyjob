@@ -1,8 +1,10 @@
 class ReviewsController < ApplicationController
- before_action :load_job
- before_action :load_review, except: [:index, :new, :create]
+  before_action :authenticate
+  before_action :load_job
+  before_action :load_review, except: [:index, :new, :create]
  
  def index
+  @reviews = current_user.reviews.all
  end 
 
  def new
@@ -11,6 +13,7 @@ class ReviewsController < ApplicationController
  
  def create
   @review = Review.new review_params
+  @review.user = current_user
   @review.job = @job
   if @job.reviews << @review
    redirect_to job_review_path(@job,@review), notice: "Review added successfully."
@@ -28,9 +31,9 @@ class ReviewsController < ApplicationController
  def update
   if @review.update review_params
       redirect_to job_review_path(@job,@review), notice: "Review has been updated."
-    else
+  else
       render :edit, status: :unprocessable_entity
-    end
+  end
  end
  
  def destroy

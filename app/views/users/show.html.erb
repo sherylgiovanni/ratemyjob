@@ -1,3 +1,12 @@
 <% title "My Profile" %>
 
 <%= render @user %>
+
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+
+<%= button_to "Delete Account", @user, method: :delete, class: 'btn btn-secondary', form: {
+        data: {
+            turbo_confirm: "Are you sure you want to delete your account?"
+        }
+    }
+%>

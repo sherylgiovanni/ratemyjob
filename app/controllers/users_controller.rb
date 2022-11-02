@@ -22,6 +22,24 @@ class UsersController < ApplicationController
     load_user
   end
   
+  def edit
+    load_user
+  end
+ 
+  def update
+    load_user
+    if @user.update user_params
+        redirect_to user_path(@user), notice: "Your account has been updated."
+    else
+        render :edit, status: :unprocessable_entity
+    end
+  end
+ 
+ def destroy
+   @user.destroy
+   redirect_to root_path, alert: "Your account has been deleted."
+ end
+ 
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
