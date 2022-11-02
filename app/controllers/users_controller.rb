@@ -36,8 +36,10 @@ class UsersController < ApplicationController
   end
  
  def destroy
+   load_user
+   logout
    @user.destroy
-   redirect_to root_path, alert: "Your account has been deleted."
+   redirect_to login_path, alert: "You must login to continue."
  end
  
   private
