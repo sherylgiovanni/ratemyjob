@@ -2,13 +2,13 @@
 
 <%= render @review %>
 
-<% if @review.user = current_user %>
+<% if @review.user == current_user %>
     <%= link_to "Edit Review", edit_job_review_path(@job,@review) %> |
 <% end %>
 
 <%= link_to "All Reviews", job_reviews_path(@job) %>
 
-<% if @review.user = @current_user %>
+<% if @review.user == @current_user %>
     <%= button_to "Delete Review", [@job,@review], method: :delete, class: 'btn btn-secondary', form: {
             data: {
                 turbo_confirm: "Are you sure you want to delete this job?"
