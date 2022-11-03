@@ -3,8 +3,9 @@ class ApplicationController < ActionController::Base
   private
   
   def authenticate
-    if !current_user
-      redirect_to root_path, alert: 'Forbidden Access'
+    unless current_user
+      session[:protected_page] = request.url
+      redirect_to login_path, alert: 'Forbidden Access'
     end
   end
   
