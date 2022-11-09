@@ -6,7 +6,11 @@
     <%= f.password_field :password %>
     <%= f.password_field :password_confirmation, label: "Confirm Password" %>
   <% end %>
-  <%= f.primary @user.persisted? ? 'Update Account' : 'Create Account' %>
+  <% if @user.persisted? %>
+    <%= f.primary 'Update Account' %>
+  <% else %>
+    <%= f.primary 'Create Account' %>
+    <%= button_to "Sign up with Github", "/auth/github", class: "btn btn-primary", data: { turbo: false } %>
+  <% end %>
 <% end %>
 
-<%= button_to "Sign up with Github", "/auth/github", class: "btn btn-primary", data: { turbo: false } %>
