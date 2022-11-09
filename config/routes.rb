@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
+  get "/auth/:provider/callback" => "authentications#create"
+  
   # disable users from accessing index and about if they are not logged in
   resources :users, except: [:index, :about]
   resources :sessions, except: [:index, :edit, :edit, :show, :new, :destroy]
