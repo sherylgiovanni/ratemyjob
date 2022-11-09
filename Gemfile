@@ -48,6 +48,10 @@ gem "bootsnap", require: false
 # Bootstrap form
 gem "bootstrap_form", "~> 5.0"
 
+# Omniauth
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
