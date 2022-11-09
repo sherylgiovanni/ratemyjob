@@ -8,3 +8,5 @@
   <% end %>
   <%= f.primary @user.persisted? ? 'Update Account' : 'Create Account' %>
 <% end %>
+
+<%= button_to "Sign up with Github", "/auth/github", class: "btn btn-primary", data: { turbo: false } %>

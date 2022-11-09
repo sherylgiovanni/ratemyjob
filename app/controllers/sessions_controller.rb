@@ -13,6 +13,9 @@ class SessionsController < ApplicationController
     else
       redirect_to login_path, alert: 'Invalid email/password.'
     end
+  # this is like a try-catch block
+  rescue BCrypt::Errors::InvalidHash
+    redirect_to login_path, alert: "Invalid login, did you login with a third-party?"
   end 
   
   def destroy
