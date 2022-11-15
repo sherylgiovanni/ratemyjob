@@ -60,7 +60,8 @@ class JobsController < ApplicationController
       redirect_to jobs_path
     else
       @parameter = params[:search].downcase
-      @results = Jobs.all.where("lower(job_title) LIKE :search", search: "%#{@parameter}%")
+      @results = Job.all.where("lower(job_title) LIKE :search", search: "%#{@parameter}%")
+    end
   end
   
   private
