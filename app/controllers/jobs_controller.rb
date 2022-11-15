@@ -61,6 +61,7 @@ class JobsController < ApplicationController
     else
       @parameter = params[:search].downcase
       @results = Job.all.where("lower(job_title) LIKE :search", search: "%#{@parameter}%")
+      @count = @results.count
     end
   end
   
