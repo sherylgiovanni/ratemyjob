@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   # authenticate first before everything
+  skip_before_action :verify_authenticity_token
   before_action :authenticate, except: [:new, :create]
   
   def new
@@ -41,9 +42,10 @@ class UsersController < ApplicationController
   def update
     load_user
     if @user.update user_params
-        redirect_to user_path(@user), notice: "Your account has been updated."
+      
+      redirect_to user_path(@user), notice: "Your account has been updated."
     else
-        render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
  

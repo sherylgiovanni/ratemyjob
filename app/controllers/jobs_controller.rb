@@ -55,6 +55,14 @@ class JobsController < ApplicationController
     redirect_to jobs_path, alert: "Job was deleted."
   end
   
+  def search
+    if params[:search].blank?
+      redirect_to jobs_path
+    else
+      @parameter = params[:search].downcase
+      @results = Jobs.all.where("lower(job_title) LIKE :search", search: "%#{@parameter}%")
+  end
+  
   private
   def load_job
     @job = Job.find params[:id]
