@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
   end
   
   def login(user)
-    session[:user_id] = user.id
+    cookies.permanent[:auth_token] = user.auth_token
   end
     
   def logout
-    session[:user_id] = nil
+    cookies.delete(:auth_token)
   end
   
   def current_user

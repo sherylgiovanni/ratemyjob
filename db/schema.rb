@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_11_25_214652) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2022_11_25_205115) do
->>>>>>> 234dc99d6cb164d7137f72eac487c66fef108e05
-=======
-ActiveRecord::Schema[7.0].define(version: 2022_11_25_205115) do
->>>>>>> 234dc99d6cb164d7137f72eac487c66fef108e05
   create_table "jobs", force: :cascade do |t|
     t.string "job_title"
     t.text "location"
@@ -50,13 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_205115) do
     t.string "token"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
-<<<<<<< HEAD
-<<<<<<< HEAD
     t.string "auth_token"
-=======
->>>>>>> 234dc99d6cb164d7137f72eac487c66fef108e05
-=======
->>>>>>> 234dc99d6cb164d7137f72eac487c66fef108e05
   end
 
 end
