@@ -20,6 +20,7 @@ class User < ApplicationRecord
         generate_token(:reset_password_token)
         self.reset_password_sent_at = Time.zone.now
         save!
+        UserMailer.password_reset(self).deliver
     end
     
     private

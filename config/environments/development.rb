@@ -70,4 +70,6 @@ Rails.application.configure do
   
   #For AWS
   config.hosts << "5ce6c26cda924016810887f11184ce8a.vfs.cloud9.us-west-2.amazonaws.com"
+  
+  config.action_mailer.default_url_options = { :host => '5ce6c26cda924016810887f11184ce8a.vfs.cloud9.us-west-2.amazonaws.com' }
 end
