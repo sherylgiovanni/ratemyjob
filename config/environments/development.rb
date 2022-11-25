@@ -70,25 +70,4 @@ Rails.application.configure do
   
   #For AWS
   config.hosts << "5ce6c26cda924016810887f11184ce8a.vfs.cloud9.us-west-2.amazonaws.com"
-<<<<<<< HEAD
-=======
-  
-  # For sending email
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'pinnaclewordpress@gmail.com'}
-  
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'https://5ce6c26cda924016810887f11184ce8a.vfs.cloud9.us-west-2.amazonaws.com/',
-    user_name:            'pinnaclewordpress@gmail.com',
-    password:             'swifties13',
-    authentication:       'plain',
-    enable_starttls_auto: true
-  }
-
->>>>>>> 234dc99d6cb164d7137f72eac487c66fef108e05
 end
