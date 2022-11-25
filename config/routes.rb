@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   get "logout" => "sessions#destroy"
   get "/auth/:provider/callback" => "authentications#create"
   get "/search", to: "jobs#search"
-  get 'password/forgot', to: 'passwords#forgot'
-  get 'password/reset', to: 'passwords#reset'
   
   # disable users from accessing index and about if they are not logged in
   resources :users, except: [:index, :about]
@@ -15,6 +13,7 @@ Rails.application.routes.draw do
   resources :jobs do
     resources :reviews
   end
+  resources :passwords
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "about" => "sites#about"
   # Defines the root path route ("/")

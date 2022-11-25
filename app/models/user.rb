@@ -16,6 +16,12 @@ class User < ApplicationRecord
         self.password_digest.nil? || self.password_digest != '0'
     end 
     
+    def send_password_reset
+        generate_token(:reset_password_token)
+        self.reset_password_sent_at = Time.zone.now
+        save!
+    end
+    
     private
     
     def generate_token(column)
