@@ -36,4 +36,8 @@ class User < ApplicationRecord
     def generate_token
         SecureRandom.hex(10)
     end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> 234dc99d6cb164d7137f72eac487c66fef108e05
