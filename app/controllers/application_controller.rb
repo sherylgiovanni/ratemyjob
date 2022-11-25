@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   end
   
   def login(user)
-    cookies.permanent[:auth_token] = user.auth_token
+    if params[:remember_me]
+      cookies.permanent[:auth_token] = user.auth_token
+    else
+      cookies[:auth_token] = user.auth_token
+    end
   end
     
   def logout
@@ -18,12 +22,7 @@ class ApplicationController < ActionController::Base
   end
   
   def current_user
-    if @current_user
-      @current_user
-    elsif session[:user_id]
-      # cache the current user in a variable
-      @current_user = User.find session[:user_id]
-    end
+    @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
   end
   
   helper_method :current_user
