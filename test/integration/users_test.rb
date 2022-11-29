@@ -15,7 +15,7 @@ class UsersTest < ActionDispatch::IntegrationTest
     
     assert_text "Log out"
     assert_text "Test Signup"
-    refute page.has_context?("Login")
+    refute page.has_content?("Login")
   end
   
   test "users can not sign up with errors" do
