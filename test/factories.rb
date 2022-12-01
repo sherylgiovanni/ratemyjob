@@ -5,4 +5,9 @@ FactoryBot.define do
     f.password { "password" }
     f.password_confirmation { |d| d.password }
   end
+  factory :job do |f|
+    f.sequence(:job_title) { |n| "Job #{n}" }
+    f.location { "location" }
+    f.category { "category" }    
+  end
 end
