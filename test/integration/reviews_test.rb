@@ -34,18 +34,26 @@ class ReviewsTest < ActionDispatch::IntegrationTest
   end
   
   test "user can edit a review they created" do
-    login_user
+    user = login_user
     job = FactoryBot.create :job
+    review = FactoryBot.create :review, job: job, user: user
     visit root_path
     click_on "See Jobs"
     click_on job.job_title
     click_on "Reviews about this job"
-    click_on "Add Review"
-    fill_in "Work hours", with: "Test hours"
-    fill_in "Pros", with: "Test pros"
-    fill_in "Cons", with: "Test cons"
-    click_button "Submit Review"
-    
-    assert_text "Test pros"
+    click_on review.pros
+    assert_text "Edit Review"
+  end
+  
+  test "user can not edit a review they did create" do
+    login_user
+    job = FactoryBot.create :job
+    review = FactoryBot.create :review, job: job
+    visit root_path
+    click_on "See Jobs"
+    click_on job.job_title
+    click_on "Reviews about this job"
+    click_on review.pros
+    refute page.has_content?("Edit review")
   end
 end
