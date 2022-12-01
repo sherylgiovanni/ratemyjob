@@ -13,6 +13,13 @@ class ReviewTest < ActiveSupport::TestCase
     refute review.valid?
   end
   
+  test "requires a job" do
+    review = FactoryBot.build :review
+    review.job = nil
+    
+    refute review.valid?
+  end
+  
   test "requires pros" do
     review = FactoryBot.build :review
     review.pros = ""

@@ -4,13 +4,14 @@
   <%= f.alert_message "Please fix the errors below.", error_summary: false %>
   <%= f.email_field :email %>
   <%= f.password_field :password %>
-  <%= f.primary 'Login' %>
   <div class="field">
     <%= check_box_tag :remember_me, 1, params[:remember_me] %>
     <%= label_tag :remember_me %>
   </div>
+  <%= f.primary 'Login' %>
+  <%= button_to "Login with Github", "/auth/github", class: "btn btn-primary", data: { turbo: false } %>
 <% end %>
 
-<%= button_to "Login with Github", "/auth/github", class: "btn btn-primary", data: { turbo: false } %>
+
 
 <p><%= link_to "Forgot password?", new_password_path %></p>
