@@ -10,4 +10,12 @@ FactoryBot.define do
     f.location { "location" }
     f.category { "category" }    
   end
+  factory :review do |f|
+    f.pros { "Here are the pros" }
+    f.cons { "Here are the cons" }
+    f.hiring_manager_name { "Hiring manager name" }
+    f.work_hours { "Work hours" }
+    f.association :user
+    f.association :job
+  end
 end
