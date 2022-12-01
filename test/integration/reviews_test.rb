@@ -33,7 +33,7 @@ class ReviewsTest < ActionDispatch::IntegrationTest
     assert_text "Test pros"
   end
   
-  test "user can edit a review they created" do
+  test "user can edit and delete a review they created" do
     user = login_user
     job = FactoryBot.create :job
     review = FactoryBot.create :review, job: job, user: user
@@ -43,9 +43,10 @@ class ReviewsTest < ActionDispatch::IntegrationTest
     click_on "Reviews about this job"
     click_on review.pros
     assert_text "Edit Review"
+    assert_text "Delete Review"
   end
   
-  test "user can not edit a review they did create" do
+  test "user can not edit nor delete a review they did create" do
     login_user
     job = FactoryBot.create :job
     review = FactoryBot.create :review, job: job
@@ -55,5 +56,21 @@ class ReviewsTest < ActionDispatch::IntegrationTest
     click_on "Reviews about this job"
     click_on review.pros
     refute page.has_content?("Edit review")
+    refute page.has_content?("Delete review")
+  end
+  
+  
+  test "user can delete their review and have it not show up again" do
+    user = login_user
+    job = FactoryBot.create :job
+    review = FactoryBot.create :review, job: job, user: user
+    visit root_path
+    click_on "See Jobs"
+    click_on job.job_title
+    click_on "Reviews about this job"
+    click_on review.pros
+    click_on "Delete Review"
+    assert_text "has been deleted"
+    refute page.has_content?(review.pros)
   end
 end

@@ -8,7 +8,8 @@ FactoryBot.define do
   factory :job do |f|
     f.sequence(:job_title) { |n| "Job #{n}" }
     f.location { "location" }
-    f.category { "category" }    
+    f.category { "category" }
+
   end
   factory :review do |f|
     f.pros { "Here are the pros" }
