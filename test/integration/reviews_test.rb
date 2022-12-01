@@ -73,4 +73,21 @@ class ReviewsTest < ActionDispatch::IntegrationTest
     assert_text "has been deleted"
     refute page.has_content?(review.pros)
   end
+  
+  test "user can modify their review and have it show up as the updated version" do
+    user = login_user
+    job = FactoryBot.create :job
+    review = FactoryBot.create :review, job: job, user: user
+    visit root_path
+    click_on "See Jobs"
+    click_on job.job_title
+    click_on "Reviews about this job"
+    click_on review.pros
+    click_on "Edit Review"
+    fill_in "Pros", with: "New pros"
+    click_button "Update Review"
+    assert_text "has been updated"
+    assert_text "New pros"
+    refute page.has_content?(review.pros)
+  end
 end
